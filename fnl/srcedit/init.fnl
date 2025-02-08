@@ -2,8 +2,8 @@
 ;;;
 ;;; Documentation
 
-(local {: autoload} (require :nfnl.module))
-(local {: get-in : nil?} (autoload :nfnl.core))
+(local {: autoload} (require :srcedit.nfnl.module))
+(local {: get-in : nil?} (autoload :srcedit.nfnl.core))
 
 (local config {})
 

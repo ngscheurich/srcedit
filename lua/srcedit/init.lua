@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from fnl/srcedit/init.fnl by https://github.com/Olical/nfnl, do not edit.
-local _local_1_ = require("nfnl.module")
+local _local_1_ = require("srcedit.nfnl.module")
 local autoload = _local_1_["autoload"]
-local _local_2_ = autoload("nfnl.core")
+local _local_2_ = autoload("srcedit.nfnl.core")
 local get_in = _local_2_["get-in"]
 local nil_3f = _local_2_["nil?"]
 local config = {}
