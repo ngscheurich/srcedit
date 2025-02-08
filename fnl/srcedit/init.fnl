@@ -3,7 +3,9 @@
 ;;; Documentation
 
 (local {: autoload} (require :nfnl.module))
-(local {: nil?} (autoload :nfnl.core))
+(local {: get-in : nil?} (autoload :nfnl.core))
+
+(local config {})
 
 (fn get-parser []
   "Returns a tree of parsers (LanguageTree) for the current buffer using the
@@ -56,12 +58,14 @@
     (vim.api.nvim_buf_set_option new-buf :filetype lang-text)
     (vim.cmd "split")
     (vim.cmd (.. "buffer " new-buf))
-    (vim.keymap.set :n :<Leader><Leader> apply-fn {:buffer true})
     (vim.api.nvim_create_user_command :SrceditApply apply-fn {})))
 
-(fn scratch []
-  (let [node (parent-code-block (current-node))]
-    (when node
-      (edit node))))
+(fn setup [config]
+  nil)
 
-(vim.keymap.set :n :<Leader><Leader> scratch)
+(let [config {:keymaps {}}
+      user-config {:keymaps {:edit :<Leader>e}}]
+  (get-in user-config [:keymaps :apply] (get-in config [:keymaps :apply])))
+
+{: setup
+ :apply_edits apply-edits}
